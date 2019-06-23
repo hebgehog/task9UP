@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
 
 namespace task9UP
 {
@@ -10,7 +6,6 @@ namespace task9UP
     {
         static void Main(string[] args)
         {
-
             Point p2 = new Point();
             int size = 0;
             int a = 0;
@@ -35,11 +30,11 @@ namespace task9UP
             Console.WriteLine("Первый включенный в список элемент, имеющий номер 1, оказывается в хвосте списка: ");
             p2 = p2.SwapBeg(p2);
             p2.ShowList1(p2);
-            Console.WriteLine("Введите номер элемента который хотите найти: ");
+            Console.WriteLine("Введите номер элемента, который хотите найти: ");
             N1--;
             int number = p2.wwww();
             p2.Search(p2, N1, number);
-            Console.WriteLine("Введите номер элемента который хотите удалить: ");
+            Console.WriteLine("Введите номер элемента, который хотите удалить: ");
             N1++;
             number = p2.wwww();
             p2 = p2.Dell(p2, N1, number);
@@ -47,7 +42,6 @@ namespace task9UP
 
             Console.ReadKey();
         }
-
         class Point
         {
             public int data;
@@ -118,11 +112,11 @@ namespace task9UP
                 beg = beg.next;
                 return beg;
             }
-            public void Search(Point beg, int N1, int number)
+            public void Search(Point beg, int N1, int number)//с 2 сторон
             {
                 Point p = beg;
                 N1++;
-                if (N1 == number) { Console.WriteLine("элемент с номеройм {0} найден: {1}", number, p); return; }
+                if (N1 == number) { Console.WriteLine("элемент с номером {0} найден: {1}", number, p); return; }
                 if (p.next == null) { Console.WriteLine("элемент не найден"); return; }
                 Search(p.next, N1, number);
             }
@@ -130,7 +124,7 @@ namespace task9UP
             {
                 Point p = beg;
                 if (p == null) return beg;
-                if (number == 1) return p.next;
+                if (p.next == null) { Console.WriteLine("элемент не найден"); }
                 N1++;
                 if (N1 == number) p.next = p.next.next;
                 else Dell(p.next, N1, number);
